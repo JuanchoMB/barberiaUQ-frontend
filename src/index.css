@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Replaced @theme inline with @layer base for Tailwind v3 compatibility */
+@layer base {
+    :root {
+        /* Color Palette - Elegant Barbershop */
+        --color-primary: #d4a574; /* Warm amber/gold */
+        --color-primary-dark: #b8935f;
+        --color-secondary: #8b4049; /* Deep burgundy */
+        --color-background: #f5f1e8; /* Warm cream */
+        --color-surface: #ffffff;
+        --color-text: #1a1a1a; /* Deep charcoal */
+        --color-text-muted: #6b6b6b;
+        --color-border: #e0d9cc;
+
+        /* Typography */
+        --font-display: "Playfair Display", serif;
+        --font-body: "Inter", sans-serif;
+
+        /* Spacing */
+        --radius: 0.75rem;
+    }
+
+    body {
+        font-family: var(--font-body);
+        background-color: var(--color-background);
+        color: var(--color-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+    }
+}
+
+/* Moved custom utilities to @layer utilities for better organization */
+@layer utilities {
+    .font-display {
+        font-family: var(--font-display);
+    }
+
+    .font-body {
+        font-family: var(--font-body);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .bg-primary:hover {
+        background-color: var(--color-primary-dark);
+    }
+
+    .text-secondary {
+        color: var(--color-secondary);
+    }
+
+    .bg-secondary {
+        background-color: var(--color-secondary);
+    }
+
+    .border-primary {
+        border-color: var(--color-primary);
+    }
+}
+
+/* Moved component styles to @layer components */
+@layer components {
+    /* Card styles */
+    .card-elegant {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+
+    .card-elegant:hover {
+        box-shadow: 0 4px 16px rgba(212, 165, 116, 0.15);
+        transform: translateY(-2px);
+    }
+
+    /* Button styles */
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+    }
+
+    .btn-secondary {
+        background-color: var(--color-secondary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6f3339;
+        box-shadow: 0 4px 12px rgba(139, 64, 73, 0.3);
+    }
+
+    /* Input styles */
+    .input-elegant {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        padding: 0.75rem 1rem;
+        background: var(--color-surface);
+        transition: all 0.3s ease;
+        font-family: var(--font-body);
+    }
+
+    .input-elegant:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    /* Badge styles */
+    .badge-active {
+        background-color: rgba(212, 165, 116, 0.15);
+        color: var(--color-primary-dark);
+        border: 1px solid var(--color-primary);
+    }
+
+    .badge-inactive {
+        background-color: rgba(107, 107, 107, 0.1);
+        color: var(--color-text-muted);
+        border: 1px solid var(--color-border);
+    }
+}
